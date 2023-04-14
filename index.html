@@ -1,1 +1,56 @@
-HELLO WORLD
+<!DOCTYPE html>
+<html lang=""en">
+<head>
+    <meta chartset="UTF-8">
+    <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    <title>D3 and chart.js test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+</div>
+<div class="page-container">
+<div class="content">
+<div class="card-container">
+<div class="card">
+    <span class="card-icon material-symbols-outlined">
+        groups
+    </span>
+    <h3>ECHO Attendances</h3>
+    <p id="attendances">4,235,000</p>
+</div>
+
+<div class="card">
+    <h3>ECHO Programs</h3>
+    <p id="programs">20,000</p>
+</div>
+<div class="card">
+    <h3>Attendee Countries</h3>
+    <p id="attendee_countries">150</p>
+</div>
+</div>
+
+<div id="chart-wrapper">
+    <div id="title">Which tennis player was No.1 the longest?</div>
+    <div id="legend">
+        <div class="item female">Women</div>
+        <div class="item male">Men</div>
+      </div>
+  <canvas id="chart"></canvas>
+</div>
+</div>
+<footer class="page-footer">
+    Data as of 2023/04/01
+</footer>
+</div>
+</body>
+</html>
