@@ -9,9 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
 </head>
 
 <body>
@@ -33,24 +34,24 @@
     <h3>ECHO Programs</h3>
     <p id="programs">20,000</p>
 </div>
+
 <div class="card">
     <h3>Attendee Countries</h3>
     <p id="attendee_countries">150</p>
 </div>
+
 </div>
 
 <div id="chart-wrapper">
-    <div id="title">Which tennis player was No.1 the longest?</div>
-    <div id="legend">
-        <div class="item female">Women</div>
-        <div class="item male">Men</div>
-      </div>
-  <canvas id="chart"></canvas>
+    <div id="title">ECHO Attendances by Year</div>
+  <canvas id="waterfall-chart"></canvas>
 </div>
+
 </div>
 <footer class="page-footer">
     Data as of 2023/04/01
 </footer>
 </div>
 </body>
+<script src="main.js"></script>
 </html>

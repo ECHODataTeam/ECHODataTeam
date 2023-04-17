@@ -28,27 +28,27 @@ flex-grow: 1;
 .card-container {
     display: flex;
     flex: 1;
-    justify-content: space-around; /* Add spacing between the cards */
-    flex-wrap: wrap; /* Enable wrapping for better responsiveness */
+    justify-content: space-around; 
+    flex-wrap: wrap; 
 }
 
 .card-icon {
     display: block;
     height: 10px;
     margin: 0 auto; /* Center the icon horizontally */
-    margin-bottom: 5px;
-    font-size: 40px;
+    margin-bottom: 10px;
+    font-size: 50px;
 }
 
 .card {
     background-color: #007A86; /* Turquoise background color */
-    border-radius: 10px; /* Slightly rounded edges */
-    padding: 20px;
-    width: 200px;
+    border-radius: 6px; /* Slightly rounded edges */
+    padding: 10px;
+    width: 300px;
     text-align: center;
     margin: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-    color: #000;
+    box-shadow: 0 14px 14px rgba(0, 0, 0, 0.4); 
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,35 +58,17 @@ flex-grow: 1;
 .card h3 {
     margin-bottom: 5px;
 }
+
 .card p {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin: 0;
 }
 
-#legend {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px 10px;
-  font-size: 12px;
-}
-
-#legend .item {
-  line-height: 12px;
-  padding: 0 10px 0 4px;
-}
-
-#legend .item.male {
-  border-left: 12px solid #19A0AA;
-}
-
-#legend .item.female {
-  border-left: 12px solid #F15F36;
-}
-
 #chart-wrapper {
-  height: 600px;
-  width: 800px;
+  height: 800px;
+  width: 1000px;
+  
 }
 
 .page-footer {
