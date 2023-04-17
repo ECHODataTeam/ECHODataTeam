@@ -50,9 +50,9 @@ function createWaterfallChart(parsedData) {
           backgroundColor: (context) => {
             const index = context.dataIndex;
             if (index === data.length) {
-              return '#007A86'; // Grand total
+              return 'rgba(0, 122, 134, 1)'; // Grand total
             }
-            return '#007A86';
+            return '#d6a461';
           },
           borderColor: (context) => {
             const index = context.dataIndex;
