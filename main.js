@@ -170,13 +170,13 @@ const createChoroplethMap = (geoData, csvData) => {
     .append("path")
     .attr("d", path)
     .attr("fill", (d) => {
-      const countryData = csvData.find((c) => c.countryCode === d.id);
+      const countryData = csvData.find((c) => c.countryCode === d.properties["Alpha-2 code"]);
       return countryData ? colorScale(countryData.value) : "#ccc";
     });
 };
 
 Promise.all([
-  d3.json("http://enjalot.github.io/wwsd/data/world/world-110m.geojson"),
+  d3.json("world-110m.geojson"),
   d3.csv("world_attendance.csv", (d) => ({
     countryCode: d["iso2"],
     value: +d.attendance,
