@@ -66,9 +66,18 @@ flex-grow: 1;
   margin: 0;
 }
 
-#chart-wrapper {
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#chart-wrapper1 {
   width: 50%;
   height: 60vh;
+}
+
+#chart-wrapper2 {
+  width: 50%;
 }
 
 .page-footer {

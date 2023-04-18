@@ -143,3 +143,46 @@ function createWaterfallChart(parsedData) {
     },
   });
 };
+
+//choropleth map
+const createChoroplethMap = (geoData, csvData) => {
+  const width = 960;
+  const height = 800;
+
+  const svg = d3
+    .select("#map")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  const projection = d3.geoNaturalEarth1().scale(width / 2 / Math.PI);
+  const path = d3.geoPath().projection(projection);
+
+  const colorScale = d3
+    .scaleQuantize()
+    .domain([0, d3.max(csvData, (d) => d.value)])
+    .range(d3.schemeBlues[9]);
+
+  svg
+    .selectAll("path")
+    .data(geoData.features)
+    .enter()
+    .append("path")
+    .attr("d", path)
+    .attr("fill", (d) => {
+      const countryData = csvData.find((c) => c.countryCode === d.id);
+      return countryData ? colorScale(countryData.value) : "#ccc";
+    });
+};
+
+Promise.all([
+  d3.json("http://enjalot.github.io/wwsd/data/world/world-110m.geojson"),
+  d3.csv("world_attendance.csv", (d) => ({
+    countryCode: d["iso2"],
+    value: +d.attendance,
+  })),
+]).then(([geoData, csvData]) => {
+  console.log(`There are ${csvData.length} rows of data`);
+  console.log(`There are ${geoData.features.length} features in the geojson`);
+  createChoroplethMap(geoData, csvData);
+});
