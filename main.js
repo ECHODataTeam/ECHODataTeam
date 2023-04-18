@@ -1,14 +1,37 @@
 Chart.defaults.defaultFontFamily = 'Roboto';
 Chart.defaults.defaultFontColor = '#333';
 
-//load waterfall_chart data
+//load attendance data
 d3.csv("waterfall_chart.csv").then((data) => {
   const parsedData = data.map((d) => ({
     year: d.year,
     value: +d.total,
   }));
+  // Calculate the grand total of attendance 
+  const grandTotal = parsedData.reduce((acc, curr) => acc + curr.value, 0);
 
+  // Update the ECHO Attendances card
+  const attendancesElement = document.getElementById("attendances");
+  attendancesElement.textContent = grandTotal.toLocaleString();
   createWaterfallChart(parsedData);
+});
+
+//number formatter
+function formatNumber(number) {
+  if (number >= 1000000) {
+    return (number / 1000000).toFixed(1) + "M";
+  } else if (number >= 1000) {
+    return (number / 1000).toFixed(1) + "K";
+  }
+  return number.toLocaleString();
+}
+//download chart as png
+document.getElementById('download-chart').addEventListener('click', () => {
+  const canvas = document.getElementById('waterfall-chart');
+  const link = document.createElement('a');
+  link.href = canvas.toDataURL('image/png');
+  link.download = 'chart.png';
+  link.click();
 });
 
 function createWaterfallChart(parsedData) {
@@ -66,6 +89,8 @@ function createWaterfallChart(parsedData) {
       ],
     },
     options: {
+      response: true,
+      maintainAspectRatio: false,
       scales: {
         y: {
           beginAtZero: true,
@@ -91,12 +116,25 @@ function createWaterfallChart(parsedData) {
               return ''; 
             }
             if (index === data.length) {
-              return grandTotal; 
+              return formatNumber(grandTotal);
             }
-            return value; 
+            return formatNumber(value);
           },
+          
           align: 'end',
           anchor: 'end',
+        },
+        zoom: {
+          pan: {
+            enabled: false,
+            mode: 'x',
+          },
+          zoom: {
+            wheel: {
+            enabled: false,
+            }
+         
+          },
         },
         legend: {
           display: false,
