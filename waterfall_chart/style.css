@@ -32,39 +32,6 @@ html, body {
       flex-wrap: wrap; 
   }
   
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 122, 134, 0.8);
-    padding: 15px;
-    width: 200px;
-    height: 145px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 10px;
-  }
-  
-  .card-icon {
-    color: white;
-    display: block;
-    font-size: 48px;
-    line-height: 0.001;
-  }
-  
-  .card p {
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .card h3 {
-    color: white;
-    font-size: 21px;
-    margin: 0;
-  }
   .charts-container {
     display: flex;
     flex-wrap: wrap;
