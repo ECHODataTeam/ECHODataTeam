@@ -142,3 +142,19 @@ function createWaterfallChart(parsedData) {
 };
 
 
+fetch('./style.css', { method: 'HEAD' })
+  .then((response) => {
+    if (response.ok) {
+      return response.headers.get('Last-Modified');
+    } else {
+      throw new Error('Failed to fetch the file headers');
+    }
+  })
+  .then((lastModified) => {
+    const lastModifiedDate = new Date(lastModified);
+    const formattedDate = lastModifiedDate.toLocaleDateString();
+    document.getElementById('lastModified').textContent = formattedDate;
+  })
+  .catch((error) => {
+    console.error('Error fetching the last modified date:', error);
+  });
