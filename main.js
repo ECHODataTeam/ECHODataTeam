@@ -30,7 +30,7 @@ document.getElementById('download-chart').addEventListener('click', () => {
   const canvas = document.getElementById('waterfall-chart');
   const link = document.createElement('a');
   link.href = canvas.toDataURL('image/png');
-  link.download = 'chart.png';
+  link.download = 'echo_waterfall_chart.png';
   link.click();
 });
 
@@ -149,7 +149,11 @@ const createChoroplethMap = (geoData, csvData) => {
   const width = 960;
   const height = 800;
 
-  const svg = d3
+  const tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
+    const svg = d3
     .select("#map")
     .append("svg")
     .attr("width", width)
@@ -163,8 +167,9 @@ const createChoroplethMap = (geoData, csvData) => {
     .domain([0, d3.max(csvData, (d) => d.value)])
     .range(d3.schemeBlues[9]);
 
-  svg
-    .selectAll("path")
+  const g = svg.append("g");
+
+  g.selectAll("path")
     .data(geoData.features)
     .enter()
     .append("path")
@@ -172,7 +177,33 @@ const createChoroplethMap = (geoData, csvData) => {
     .attr("fill", (d) => {
       const countryData = csvData.find((c) => c.countryCode === d.properties["Alpha-2 code"]);
       return countryData ? colorScale(countryData.value) : "#ccc";
+    })
+    .on("mouseover", (event, d) => {
+      const countryData = csvData.find((c) => c.countryCode === d.properties["Alpha-2 code"]);
+      tooltip.html(`
+        <strong>${d.properties.name}</strong><br>
+        Attendance: ${countryData ? countryData.value.toLocaleString() : "No data"}
+      `);
+      tooltip.style("opacity", 1);
+    })
+    .on("mousemove", (event) => {
+      tooltip
+        .style("left", event.pageX + 10 + "px")
+        .style("top", event.pageY + 10 + "px");
+    })
+    .on("mouseout", () => {
+      tooltip.style("opacity", 0);
     });
+
+  const zoom = d3.zoom()
+    .scaleExtent([1, 3]) 
+    .on('zoom', zoomed);
+
+  function zoomed(event) {
+    g.attr('transform', event.transform);
+  }
+
+  svg.call(zoom);
 };
 
 Promise.all([
@@ -186,3 +217,5 @@ Promise.all([
   console.log(`There are ${geoData.features.length} features in the geojson`);
   createChoroplethMap(geoData, csvData);
 });
+
+
