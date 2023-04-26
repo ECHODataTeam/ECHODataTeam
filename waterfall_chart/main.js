@@ -142,7 +142,7 @@ function createWaterfallChart(parsedData) {
 };
 
 
-fetch('./style.css', { method: 'HEAD' })
+fetch('../waterfall_chart.csv', { method: 'HEAD' })
   .then((response) => {
     if (response.ok) {
       return response.headers.get('Last-Modified');
