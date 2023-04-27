@@ -137,6 +137,12 @@ function createWaterfallChart(parsedData) {
         legend: {
           display: false,
         },
+        title: {
+          display: true,
+          text: 'ECHO Attendance by Year',
+          position: 'top',
+          align: 'left',
+        },
       },
     },
   });
