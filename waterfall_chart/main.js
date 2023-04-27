@@ -31,7 +31,25 @@ document.getElementById('download-chart').addEventListener('click', () => {
   link.click();
 });
 
-function createWaterfallChart(parsedData) {
+//date modified
+async function getDateUpdated() {
+  try {
+    const response = await fetch('../waterfall_chart.csv', { method: 'HEAD' });
+
+    if (response.ok) {
+      const lastModified = response.headers.get('Last-Modified');
+      const lastModifiedDate = new Date(lastModified);
+      return lastModifiedDate;
+    } else {
+      throw new Error('Failed to fetch the file headers');
+    }
+  } catch (error) {
+    console.error('Error fetching the last modified date:', error);
+  }
+}
+
+async function createWaterfallChart(parsedData) {
+  
   Chart.register(ChartDataLabels);
 
   const labels = parsedData.map((d) => d.year);
@@ -53,6 +71,7 @@ function createWaterfallChart(parsedData) {
   stackedData.push([0, grandTotal]);
 
   const ctx = document.getElementById('waterfall-chart').getContext('2d');
+  const lastModifiedDate = await getDateUpdated();
   const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -139,7 +158,7 @@ function createWaterfallChart(parsedData) {
         },
         title: {
           display: true,
-          text: 'ECHO Attendance by Year',
+          text: ['ECHO Attendance by Year', 'Data as of ' + lastModifiedDate.toLocaleDateString()],
           position: 'top',
           align: 'left',
         },
