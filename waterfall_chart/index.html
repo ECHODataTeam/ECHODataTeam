@@ -3,7 +3,7 @@
 <head>
     <meta chartset="UTF-8">
     <meta name="viewport" content=""width=device-width, initial-scale="1.0">
-    <title>D3 and chart.js test</title>
+    <title>ECHO Attendances by year</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -13,25 +13,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.4/d3.js"></script>
-
-
 </head>
-
 <body>
-
-<div class="header">
-</div>
 <div class="page-container">
-<div class="content">
-<div class="charts-container">
-    <div id="chart-wrapper1">
-      <div id="title">ECHO Attendances by Year</div>
-      <canvas id="waterfall-chart"></canvas>
-      <button id="download-chart" class="download-btn">Download Chart</button>
-    </div>
-  </div>
+<div id="chart-wrapper1">
+<div id="title">ECHO Attendances by Year</div>
+<canvas id="waterfall-chart"></canvas>
+<button id="download-chart" class="download-btn">Download Chart</button>
 </div>
-<footer>
+
+<footer class="page-footer">
     <p>Last updated: <span id="lastModified"></span></p>
   </footer>
 </div>

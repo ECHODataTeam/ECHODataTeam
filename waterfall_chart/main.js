@@ -120,6 +120,7 @@ function createWaterfallChart(parsedData) {
           
           align: 'end',
           anchor: 'end',
+          offset: 0,
         },
         zoom: {
           pan: {
