@@ -1,0 +1,7 @@
+﻿Metric Name,Definition,Category,Type
+Attendances,"Count of all attendances at ECHO programs, where attendee type is attendee and ECHO programs are not marked as canceled. Includes anonymous attendees where applicable.",Attendance,COUNT
+Attendee Countries,Count of distinct attendee countries where geographic data is sufficient enough to determine country of origin.,Attendance,DISTINCT COUNT
+Launched Hubs,Count of all distinct ECHO Hubs that have launched ECHO programs and recorded attendance at one or more ECHO session.,Hub,DISTINCT COUNT
+Partner Countries,Count of distinct Launched Hub countries where geographic data is sufficient enough to determine Hub location.,Hub,DISTINCT COUNT
+Programs,….,Program,DISTINCT COUNT
+Impacted Region,….,Hub,…
