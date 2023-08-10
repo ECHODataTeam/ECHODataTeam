@@ -1,7 +1,11 @@
-﻿Metric Name,Definition,Category,Type
-Attendances,"Count of all attendances at ECHO programs, where attendee type is attendee and ECHO programs are not marked as canceled. Includes anonymous attendees where applicable.",Attendance,COUNT
-Attendee Countries,Count of distinct attendee countries where geographic data is sufficient enough to determine country of origin.,Attendance,DISTINCT COUNT
-Launched Hubs,Count of all distinct ECHO Hubs that have launched ECHO programs and recorded attendance at one or more ECHO session.,Hub,DISTINCT COUNT
-Partner Countries,Count of distinct Launched Hub countries where geographic data is sufficient enough to determine Hub location.,Hub,DISTINCT COUNT
-Programs,….,Program,DISTINCT COUNT
-Impacted Region,….,Hub,…
+﻿Metric ID,Metric Name,Definition,Constraints,Common Filters (see list of filters <here>),Category,Examples (coming soon)
+hub_1,Launched Hub 1,,,"Time, Geography, Focus Area",Hub,
+hub_2,Launched Hub 2,,,"Time, Geography, Focus Area",Hub,
+hub_3,Launched Hub 3,,,"Time, Geography, Focus Area",Hub,
+hub_a,Active Hub,,,"Time, Geography, Focus Area",Hub,
+att_1,Attendance,"Count of all attendances at ECHO programs, where attendee type is attendee and ECHO programs are not marked as canceled. Includes anonymous attendees where applicable.",,"Time, Attendee Geography, Hub Geography",Attendance,
+att_u1,Unique Attendees,Count of distinct ECHO attendees (Due to different attendance platforms this may be difficult to obtain accurate number),,"Time, Attendee Geography, Hub Geography",Attendance,
+att_u2,Unique Attendes (Ratio),Count of distinct ECHO attendees provided derived ratio of attendee to sessions attended,,"Time, Attendee Geography, Hub Geography",Attendance,
+prog_1,Programs,Count of distinct ECHO programs with attendance data,"hub_1, att_1","Time, Focus Area, Hub Geography",Program,
+sess_1,Sessions,Count of distinct ECHO sessions.,,"Time, Focus Area, Hub Geography",Session,
+bat_1,Batches,Count of distinct ECHO batches.,,"Time, Focus Area, Hub Geography",,
