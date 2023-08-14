@@ -20,13 +20,21 @@
         <main class="row">
             <div class="col">
                 
-                <h1><img src="https://test-bucket-uploadmgmt.s3.ap-south-1.amazonaws.com/EmailTemplate/echoLogo.png"> ECHO REDI Data Team Metric Definitions</h1>
-
-                <p>Evolving list of metrics reported by the Data Team</p>
+                <h1><img src="https://test-bucket-uploadmgmt.s3.ap-south-1.amazonaws.com/EmailTemplate/echoLogo.png"> ECHO REDI Data Team Metrics and Filters</h1>
+                <br>
+                <h3>Metrics reported by the REDI Data Team</h3>
 
                 <div id="table-container"></div>
             </div>
+    
         </main>
+        <br><hr>
+        <main class="row">
+        <div class="col">
+            <h3>Data Filters used by the REDI Data Team</h3>
+            <div id="table-container-2"></div>
+        </div>
+    </main>
         <footer class="row">
             <div class="col">
                 <hr>
@@ -51,6 +59,30 @@
         CsvToHtmlTable.init({
             csv_path: "data/echo_metrics.csv",
             element: "table-container",
+            allow_download: true,
+            csv_options: {
+                separator: ",",
+                delimiter: '"'
+            },
+            datatables_options: {
+                paging: false
+            },
+            /*custom_formatting: [
+                [4, format_link]
+            ]*/
+        });
+    </script>
+
+    <script>
+        function format_link(link) {
+            if (link)
+                return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+            else return "";
+        }
+
+        CsvToHtmlTable.init({
+            csv_path: "data/echo_filters.csv",
+            element: "table-container-2",
             allow_download: true,
             csv_options: {
                 separator: ",",

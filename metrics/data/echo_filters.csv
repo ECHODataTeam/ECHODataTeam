@@ -1,0 +1,12 @@
+Filter ID,Filter Name,Definition,Metric Scope,Examples (coming soon)
+time_1,Time Frame,Any time range of ECHO Session start date(s),Global,
+country_1,Country,Hub or attendee country,"Hub, Attendance",
+state_1,State,Hub or attendee state,"Hub, Attendance",
+county_1,County,Hub or attendee county,"Hub, Attendance",
+city_1,City,Hub or attendee city,"Hub, Attendance",
+legis_1,US Legislature Area,"Attendee legislature district, national or state-level",Attendance,
+focus_area_1,Focus Area,Hub or program focus area(s),"Hub, Program",
+occupation_1,Attendee Occupation,Attendee occupation provided at registration,Attendance,
+credential_1,Attendee Credential,Attendee credential provided at registration,Attendance,
+gender_1,Attendee Gender,Attendee gender provided at registration,Attendance,
+region_impacted_1,Region Impacted,"Program operating hub region or, if provided, program region of impact",Global,

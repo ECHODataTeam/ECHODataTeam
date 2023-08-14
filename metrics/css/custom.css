@@ -2,10 +2,13 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   /* font-size: 0.9em; */
-  color: hsl(0, 0%, 100%);
-  background-color: #030101;
+  color: hsl(0, 0%, 2%);
+  background-color: #ffffff;
   height: 100%;
   margin: 0;
+}
+.h1 {
+  align: center;
 }
 
 .btn-info,
@@ -18,7 +21,7 @@ html, body {
 }
 
 .form-control {
-  background-color: #777;
+  background-color: #dce0e0cc;
 }
 
 .info {
@@ -36,5 +39,5 @@ html, body {
 }
 
 .sorting_asc {
-  color: #ffffff;
+  color: #000000;
 }
