@@ -1,10 +1,11 @@
-﻿Metric ID,Metric Name,Definition,Constraints,Common Filters (see list of filters <here>),Category,Examples (coming soon)
-hub_1,Launched Hub 1,,,"Time, Geography, Focus Area",Hub,
-hub_2,Launched Hub 2,,,"Time, Geography, Focus Area",Hub,
-hub_3,Launched Hub 3,,,"Time, Geography, Focus Area",Hub,
-hub_a,Active Hub,,,"Time, Geography, Focus Area",Hub,
-att_1,Attendance,"Count of all attendances at ECHO programs, where attendee type is attendee and ECHO programs are not marked as canceled. Includes anonymous attendees where applicable.",,"Time, Attendee Geography, Hub Geography",Attendance,
-att_u1,Unique Attendees,Count of distinct ECHO attendees (Due to different attendance platforms this may be difficult to obtain accurate number),,"Time, Attendee Geography, Hub Geography",Attendance,
-att_u2,Unique Attendes (Ratio),Count of distinct ECHO attendees provided derived ratio of attendee to sessions attended,,"Time, Attendee Geography, Hub Geography",Attendance,
-prog_1,Programs,Count of distinct ECHO programs with attendance data,"hub_1, att_1","Time, Focus Area, Hub Geography",Program,
-sess_1,Sessions,Count of distinct ECHO sessions.,,"Time, Focus Area, Hub Geography",Session,
+Metric ID	Metric Name	Definition	Constraints	Common Filters (see list of filters below)	Category	Examples (coming soon)
+hub_1	Launched Hub 1	"Count of hubs that meet the following conditions: Shared ECHO attendance data since 2003, "		"Time, Geography, Focus Area"	Hub	
+hub_2	Launched Hub 2	"Count  of hubs that meet 2 out of 3 conditions: 1. launch date in Salesforce, 2. valid program name in Salesforce, and 3. shared attendance data since 2003"		"Time, Geography, Focus Area"	Hub	
+hub_3	Launched Hub 3			"Time, Geography, Focus Area"	Hub	
+hub_a	Active Hub	Count of hubs that have operated one or more ECHO sessions during chosen time period	"hub_1, att_1, sess_1"	"Time, Geography, Focus Area"	Hub	
+att_1	Attendance	"Count of all attendances at ECHO programs, where attendee type is attendee. Includes anonymous attendees where applicable."	sess_1	"Time, Attendee Geography, Hub Geography"	Attendance	
+att_u1	Unique Attendees	Count of  ECHO attendees (Due to different attendance platforms this may be difficult to obtain accurate number)		"Time, Attendee Geography, Hub Geography"	Attendance	
+att_u2	Unique Attendes (Ratio)	Count of  ECHO attendees provided derived ratio of attendee to sessions attended		"Time, Attendee Geography, Hub Geography"	Attendance	
+prog_1	Programs 1	Count of  ECHO programs with attendance data	"hub_1, att_1"	"Time, Focus Area, Hub Geography"	Program	
+prog_2	Programs 2	Count of active ECHO programs in Salesforce				
+sess_1	Sessions	"Count of  ECHO sessions that have been conducted. Excludes canceled sessions, sessions occuring at a future date."		"Time, Focus Area, Hub Geography"	Session	
