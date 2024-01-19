@@ -53,7 +53,7 @@ async function createWaterfallChart(parsedData) {
   Chart.register(ChartDataLabels);
 
   const labels = parsedData.map((d) => d.year);
-  labels.push("Total Attendances");
+  labels.push("Total");
 
   const data = parsedData.map((d) => d.value);
 
